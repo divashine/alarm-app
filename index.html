@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="con">
+    <center>
+    <h1>Alarm clock</h1>
+    <div class="container">
+        <div class="clockbody">
+    <div id="gettym"></div>
+        </div>
+    </div>
+    <td colspan="3" class="mt-5"> <input type="text" id="hr" placeholder="hrs" class="dinputs" > : <input type="text" id="mn" placeholder="mins"> : <input type="text" id="sc"placeholder="secs"></td><br><br>
+    <td colspan="3" align="center"><button  class="btn btn-danger" onclick="alarmSet()">Start Alarm</button>  <button class="btn btn-info" onclick="resetTime()">Reset</button>
+        <button type="button" class="btn btn-primary"  onclick="stopTime()">Stop Time </button>
+        <select name="" id="ampm">
+            <option value="" >AM</option>
+            <option value="" >PM</option>
+        </select><br><br>
+        <div id="myqstn"></div>
+        <input type="text" name="" id="myanswr">
+    </center>
+    </div>
+    <audio src="Fireboy_DML_ft_Asake_-_Bandana_Audio_.mp3" id="snd" loop preload="auto"></audio>
+    <button id="get" onclick="submitAns()">Submit</button>
+    <script type="text/javascript">
+         myanswr.style.display= "none"
+       get.style.display="none"
+        function shwcrntTime(){
+            var myDate= new Date();
+            var myHour=myDate.getHours() ; 
+            var myMinutes= myDate.getMinutes();
+            var mySeconds= myDate.getSeconds();
+            var ap= (myDate.getHours()) < 12 ? 'AM' : 'PM';
+            gettym.innerHTML=myHour + " : " + myMinutes + " : " + mySeconds + " " + ap;
+                
+            
+            if (hr.value == myHour && mn.value == myMinutes && sc.value == mySeconds) {
+                // alert("Hi")
+                snd.play()
+             }
+           
+        }
+        var curntTime = setInterval(shwcrntTime,1000);
+        function alarmSet(){
+            var myDate= new Date();
+            var myHour=myDate.getHours() ; 
+            var myMinutes= myDate.getMinutes();
+            var mySeconds= myDate.getSeconds();
+            if (hr.value == myHour && mn.value == myMinutes && sc.value == mySeconds) {
+                // alert("Hi")
+                snd.play();
+             }
+        }
+       
+        function resetTime(){
+            hr.value = "";
+            mn.value = "";
+            sc.value = "";
+            snd.pause();
+        }
+        
+        function stopTime(){
+            var myRandNum= Math.floor(Math.random()*1000);
+            var myRndNum= Math.floor(Math.random()*1000);
+            var sign = ['+', '-', '*', '/', '%'];
+            var myRndSign= Math.floor(Math.random()*4);
+            console.log(myRndSign);
+            // var que = "25*4*5/5"
+            myanswr.style.display="block";
+            myqstn.innerHTML=  myRndNum +  sign[myRndSign]  + myRandNum; 
+            get.style.display= "block"
+                
+             }
+        function submitAns(){
+            var output= eval(myqstn.innerHTML);
+            var mainOutput= Math.round(output);
+            console.log(mainOutput)
+            setTimeout(function(){
+                if(myanswr.value==mainOutput){
+                    snd.pause();
+                }
+                else(
+                    snd.play
+                )
+            }
+            ,2000)
+
+        
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+body{
+    font-family: cursive;
+    padding: 0;
+    background: #000102;
+    /* background: linear-gradient(to right, #0c4655, #7fb3c0);  */
+}
+.con{
+    width: 50vw;
+    background-color: red;
+}
+.container{
+    width: 30vw;
+}
+.clockbody{
+    background: linear-gradient(to right, #0c4655, #7fb3c0); 
+    /* background: -webkit-linear-gradient(to right, #67231e, #102c35); */
+    /* background: linear-gradient(to right, #2e0906, #09191f);  */
+    padding: 60px 20px;
+    border: 10px solid linear-gradient(to right, #022434, #e9740d);
+}
+ h1{
+    color: white;
+}
+div{
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom:10px;
+}
+.inputs{
+    margin: auto;
+    /* margin-left: 100px; */
+}
+input{
+    margin: auto;
+    border: 2px solid rgb(3, 112, 139);
+    margin-bottom: 20px;
+    box-shadow: inset;
+    height: 60px;
+    width: 150px;
+    border-radius: 50px;
+    text-align: center;
+    caret-color: tomato;
+}
+input::placeholder{
+    color: rgb(3, 112, 139);
+}
+select{ 
+    border: 2px solid red;
+    color: black;
+    height: 40px;
+}
+#gettym{
+    font-size: 30px;
+    color: white;
+}
+#myqstn{
+    color: #7fb3c0;
+}
+button{
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid rgb(3, 112, 139);
+    margin-top: 10px;
+    color: red  !important;
+} 
